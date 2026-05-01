@@ -1,0 +1,274 @@
+﻿:root {
+  --text: #353840;
+  --muted: #484d5d;
+  --panel: #f5f5f7;
+  --media-bg: #e9edf5;
+  --overlay: rgba(62, 66, 80, 0.34);
+  --dot: #d9d9dd;
+  --accent-start: #7a62e8;
+  --accent-end: #8d70f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Sora", "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: #d9dbe2 url("./elements/placeholder_background.png") center / 82% auto no-repeat fixed;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.open-tour-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
+  border: 1px solid #ccd1e1;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #3b4154;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 11px 14px;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(22, 30, 54, 0.13);
+}
+
+.modal-shell {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 20;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  position: relative;
+  z-index: 2;
+  width: min(540px, calc(100vw - 88px));
+  border-radius: 24px;
+  background: var(--panel);
+  padding: 20px 18px 16px;
+  text-align: center;
+  box-shadow: 0 26px 64px rgba(24, 28, 40, 0.23);
+}
+
+.slide-stage {
+  position: relative;
+}
+
+.modal-media-wrap {
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--media-bg);
+  min-height: 248px;
+}
+
+.modal-media {
+  display: block;
+  width: 100%;
+  min-height: 248px;
+  object-fit: cover;
+}
+
+.dots {
+  margin: 10px 0 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 34px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--dot);
+}
+
+.dot.is-active {
+  background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.7vw, 1.24rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+p {
+  margin: 13px auto 0;
+  max-width: 500px;
+  color: var(--muted);
+  font-size: clamp(0.7rem, 0.92vw, 0.8rem);
+  line-height: 1.4;
+}
+
+.actions {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-family: inherit;
+}
+
+.primary,
+.secondary {
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  min-width: 232px;
+  cursor: pointer;
+}
+
+.primary {
+  color: #ffffff;
+  background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+}
+
+.primary:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.skip {
+  margin-top: 12px;
+  border: 0;
+  background: transparent;
+  color: #5f46f0;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.slide-stage.is-exiting-left {
+  animation: slide-out-left 210ms ease both;
+}
+
+.slide-stage.is-entering-right {
+  animation: slide-in-right 270ms ease both;
+}
+
+.slide-stage.is-exiting-right {
+  animation: slide-out-right 210ms ease both;
+}
+
+.slide-stage.is-entering-left {
+  animation: slide-in-left 270ms ease both;
+}
+
+@keyframes slide-out-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-34px);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(34px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(34px);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-34px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.modal-done {
+  padding: 32px 22px;
+}
+
+.modal-done .primary {
+  margin-top: 14px;
+}
+
+.is-hidden {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  body {
+    background-size: cover;
+  }
+
+  .modal {
+    border-radius: 18px;
+    width: min(480px, calc(100vw - 56px));
+    padding: 14px 12px 14px;
+  }
+
+  .modal-media-wrap,
+  .modal-media {
+    min-height: 188px;
+  }
+
+  h2 {
+    font-size: clamp(0.9rem, 4vw, 1.06rem);
+  }
+
+  p {
+    max-width: 95%;
+    font-size: clamp(0.66rem, 2.9vw, 0.74rem);
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .primary,
+  .secondary {
+    width: 100%;
+    min-width: 0;
+  }
+}

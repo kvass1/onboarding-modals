@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onboarding Modals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app">
+    <button id="openOnboarding" class="open-tour-btn" type="button">Open onboarding modal</button>
+
+    <section id="tourModal" class="modal-shell" aria-hidden="false">
+      <div class="backdrop"></div>
+      <article class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+        <div id="slideStage" class="slide-stage">
+          <div class="modal-media-wrap">
+            <video id="featureVideo" class="modal-media" playsinline muted loop controls preload="metadata"></video>
+          </div>
+
+          <div id="dots" class="dots" aria-hidden="true"></div>
+
+          <h2 id="modalTitle"></h2>
+          <p id="modalDescription"></p>
+        </div>
+
+        <div class="actions">
+          <button id="nextBtn" class="primary" type="button">Continue</button>
+        </div>
+
+        <button id="skipBtn" class="skip" type="button">Skip the Tour</button>
+      </article>
+    </section>
+
+    <section id="doneModal" class="modal-shell is-hidden" aria-hidden="true">
+      <div class="backdrop"></div>
+      <article class="modal modal-done" role="dialog" aria-modal="true" aria-labelledby="doneTitle" aria-describedby="doneDescription">
+        <h2 id="doneTitle">You are all set</h2>
+        <p id="doneDescription">The onboarding tour is complete. You can re-open it any time.</p>
+        <button id="doneCta" class="primary" type="button">Return to Workspace</button>
+      </article>
+    </section>
+  </main>
+
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
