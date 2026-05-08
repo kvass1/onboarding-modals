@@ -63,8 +63,8 @@ body {
 .modal {
   position: relative;
   z-index: 2;
-  width: min(540px, calc(100vw - 88px));
-  height: min(520px, calc(100vw - 88px));
+  width: min(600px, calc(100vw - 88px));
+  height: min(550px, calc(100vw - 88px));
   border-radius: 24px;
   background: var(--panel);
   padding: 16px 16px 16px;
@@ -86,7 +86,7 @@ body {
 .modal-media {
   display: block;
   width: 100%;
-  min-height: 248px;
+  height: 300px;
   object-fit: cover;
 }
 
@@ -120,7 +120,7 @@ h2 {
 
 p {
   margin: 13px auto 0;
-  max-width: 500px;
+  max-width: 550px;
   color: var(--muted);
   font-size: clamp(0.7rem, 0.92vw, 0.8rem);
   line-height: 1.8;
