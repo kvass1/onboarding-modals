@@ -232,9 +232,17 @@ button {
     background-size: cover;
   }
 
+  .modal-shell {
+    padding: 12px;
+    place-items: center;
+  }
+
   .modal {
     border-radius: 18px;
-    width: min(480px, calc(100vw - 56px));
+    width: min(480px, calc(100vw - 24px));
+    height: auto;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
     padding: 14px 12px 14px;
   }
 
@@ -245,7 +253,11 @@ button {
 
   .modal-media-wrap,
   .modal-media {
-    min-height: 188px;
+    min-height: 0;
+  }
+
+  .modal-media {
+    height: clamp(168px, 45vw, 214px);
   }
 
   h2 {
