@@ -33,7 +33,6 @@ const IN_MS = 270;
 const tourModal = document.getElementById("tourModal");
 const doneModal = document.getElementById("doneModal");
 const slideStage = document.getElementById("slideStage");
-const openOnboarding = document.getElementById("openOnboarding");
 const featureVideo = document.getElementById("featureVideo");
 const title = document.getElementById("modalTitle");
 const description = document.getElementById("modalDescription");
@@ -65,16 +64,6 @@ function render() {
   nextBtn.textContent = currentStep === steps.length - 1 ? "Finish" : "Continue";
 
   renderDots();
-}
-
-function openTour() {
-  doneModal.classList.add("is-hidden");
-  doneModal.setAttribute("aria-hidden", "true");
-
-  tourModal.classList.remove("is-hidden");
-  tourModal.setAttribute("aria-hidden", "false");
-
-  featureVideo.play().catch(() => {});
 }
 
 function closeTour() {
@@ -124,7 +113,6 @@ nextBtn.addEventListener("click", () => {
 });
 
 skipBtn.addEventListener("click", finishTour);
-openOnboarding.addEventListener("click", openTour);
 
 doneCta.addEventListener("click", () => {
   doneModal.classList.add("is-hidden");

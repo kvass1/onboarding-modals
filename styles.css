@@ -29,22 +29,6 @@ body {
   min-height: 100vh;
 }
 
-.open-tour-btn {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 10;
-  border: 1px solid #ccd1e1;
-  border-radius: 12px;
-  background: #ffffff;
-  color: #3b4154;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 11px 14px;
-  cursor: pointer;
-  box-shadow: 0 10px 26px rgba(22, 30, 54, 0.13);
-}
-
 .modal-shell {
   position: fixed;
   inset: 0;
@@ -227,11 +211,16 @@ button {
 }
 
 .modal-done {
-  padding: 32px 22px;
+  width: min(400px, calc(100vw - 56px));
+  height: auto;
+  min-height: 0;
+  padding: 26px 22px 24px;
 }
 
 .modal-done .primary {
-  margin-top: 14px;
+  margin-top: 12px;
+  min-width: 0;
+  width: 100%;
 }
 
 .is-hidden {
@@ -247,6 +236,11 @@ button {
     border-radius: 18px;
     width: min(480px, calc(100vw - 56px));
     padding: 14px 12px 14px;
+  }
+
+  .modal-done {
+    width: min(340px, calc(100vw - 40px));
+    padding: 22px 16px 20px;
   }
 
   .modal-media-wrap,
