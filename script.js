@@ -3,13 +3,13 @@
     title: "Create Interactive Activities",
     description:
       "Create interactive activities your students can use right away, from fillable worksheets and quizzes to games and more.",
-    video: "./elements/videos/1_activities_video.mp4"
+    video: "./elements/videos/1_activities.mp4"
   },
   {
     title: "Agentic AI Grading (New)",
     description:
       "Grade a full set of student submissions at once using your own rubric. Colleague AI reviews each response and creates a detailed feedback report for every student.",
-    video: "./elements/videos/2_agentic_video.mp4"
+    video: "./elements/videos/2_agentic.mp4"
   },
   {
     title: "Plan Lessons with Confidence",
